@@ -1,8 +1,10 @@
 var express = require('express'),
     router = express.Router();
 
-router.get('/', function(req, res){
-    res.send('captura todos os usuarios');
-});
+var UsuarioController = require('../controllers/UsuarioController');
+
+router.get('/', UsuarioController.getAll);
+router.get('/:_id', UsuarioController.getById);
+
 
 module.exports = router;
