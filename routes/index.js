@@ -3,4 +3,7 @@ var express = require('express'),
 
 router.get('/', function(req, res){});
 
+//usuarios
+router.use('/usuarios', require('./usuarios'));
+
 module.exports = router;
