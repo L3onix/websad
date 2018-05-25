@@ -17,5 +17,8 @@ app.get('/', (req, res) => {
     res.status(200).send({"status": "ok"});
 });
 
+//requires de rotas
+require('./controllers/authController')(app);
+
 
 module.exports = app;
