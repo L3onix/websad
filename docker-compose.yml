@@ -1,0 +1,17 @@
+# Usuário e senha => root/default
+version: '3.1'
+
+services:
+  # MongoDB
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+
+  # MongoExpress - Interface web para controle do MongoDB pode ser acessado em 'http://localhost:8081'
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
