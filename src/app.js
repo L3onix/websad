@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 
 //requires de rotas
 require('./controllers/authController')(app);
+require('./controllers/itemController')(app);
 
 
 module.exports = app;

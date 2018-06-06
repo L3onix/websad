@@ -1,17 +1,12 @@
-//TODO: Preencher este arquivo
-const jwt = require('jsonwebtoken'),
-    authConfig = require('../config/auth');
+const express = require('express'),
+    router = express.Router(),
+    authMid = require('../middlewares/auth'),
+    Item = require('../models/item');
 
-module.exports = (req, res, next) => {
-    const authHeader = req.headers.authorization;
+//router.use(authMid);
 
-    if(!authHeader){
-        return res.status(401).send({error: 'Nenhum token encontrado'});
-    }
+router.get('/', (req, res) => {
+    res.status(200).send({ok: true});
+});
 
-    const parts = authHeader.split(' ');
-
-    if(!parts.length === 2){
-        return 
-    }
-}
+module.exports = app => app.use('/item', router);
