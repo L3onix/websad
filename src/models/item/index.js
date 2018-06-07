@@ -7,40 +7,8 @@ const ItemSchema = new mongoose.Schema({
         required: true
     },
     tipo:{
-        moeda:{
-            type: Boolean
-        },
-        gema:{
-            type: Boolean
-        },
-        objetodearte:{
-            type: Boolean
-        },
-        itemcomum:{
-           armadura:{
-               type: Boolean
-           },
-           arma:{
-               type: Boolean
-           },
-           equipamento:{
-               type: Boolean
-           }
-        },
-        itemmagico:{
-            anel:{type: Boolean},
-            armadura:{type: Boolean},
-            arma:{type: Boolean},
-            bastao:{type: Boolean},
-            cajado:{type: Boolean},
-            itemmaravilhoso:{type: Boolean},
-            pergaminho:{type: Boolean},
-            pocao:{type: Boolean},
-            varinha:{type: Boolean},
-        },
-        ferramenta:{
-            type: Boolean
-        }
+        type: String,
+        required: true
     },
     valor:{
         type: String,

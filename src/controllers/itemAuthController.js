@@ -10,7 +10,7 @@ router.use(authMid);
 router.get('/', async (req, res) => {
     //res.send({ok: true});
     try{
-        const itens = await Item.find({criador: req.userId}).populate('tipo', 'criador');
+        const itens = await Item.find({criador: req.userId});
 
         return res.status(200).send({itens});
     }catch(err){
@@ -43,8 +43,8 @@ router.post('/', async (req, res) => {
 router.put('/:itemId', async (req, res) => {
     try{
         //passando o Id do tipo para dentro da requisição
-        const tipoId = buscarTipo(req.body.tipo);
-        req.body.tipo = tipoId._id;
+        //const tipoId = buscarTipo(req.body.tipo);
+        //req.body.tipo = tipoId._id;
 
         const {nome, tipo, valor, peso, descricao} = req.body
         const item = await Item.findByIdAndUpdate(req.params.itemId, {
