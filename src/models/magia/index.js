@@ -1,6 +1,6 @@
 const mongoose = require('../../database/connection');
 
-const magiaSchema = new mongoose.Schema({
+const MagiaSchema = new mongoose.Schema({
     nome:{
         type: String,
         required: true
@@ -10,10 +10,8 @@ const magiaSchema = new mongoose.Schema({
         required: true
     },
     escola:{
-        abjuracao:{
-            type: Boolean,
-            default: false
-        }
+        type: String,
+        required: true
     },
     tempodeconjuracao:{
         type: Number,
@@ -23,7 +21,7 @@ const magiaSchema = new mongoose.Schema({
         type: Number
     },
     componentes: {
-        type: String,
+        type: String
     },
     duracao:{
         type: String
@@ -38,5 +36,17 @@ const magiaSchema = new mongoose.Schema({
     },
     areadeefeito:{
         type: String
+    },
+    criador:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
+    oficial:{
+        type: Boolean,
+        default: false
     }
 });
+
+const Magia = mongoose.model('Magia', MagiaSchema);
+
+module.exports = Magia;

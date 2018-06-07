@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 require('./controllers/authController')(app);
 require('./controllers/itemController')(app);
 require('./controllers/itemAuthController')(app);
-require('./controllers/itemTipoController')(app);
-
+require('./controllers/magiaController')(app);
+require('./controllers/magiaAuthController')(app);
 
 module.exports = app;

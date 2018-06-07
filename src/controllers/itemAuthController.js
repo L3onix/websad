@@ -1,8 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     authMid = require('../middlewares/auth'),
-    Item = require('../models/item'),
-    Tipo = require('../models/item/tipo');
+    Item = require('../models/item');
 
 router.use(authMid);
 
