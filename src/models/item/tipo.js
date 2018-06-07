@@ -8,9 +8,6 @@ const TipoSchema = new mongoose.Schema({
     descricao:{
         type: String,
         required: true
-    },
-    atributos:{
-        type: JSON,
     }
 });
 

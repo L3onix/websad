@@ -23,10 +23,10 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try{
         //const tipo = req.body.tipo;
-        const tipoId = await buscarTipo(req.body.tipo);
+        //const tipoId = await buscarTipo(req.body.tipo);
         //console.log(tipoId._id);
 
-        req.body.tipo = tipoId._id;
+        //req.body.tipo = tipoId._id;
         //console.log(req.body.tipo);
 
         const item = await Item.create({...req.body, criador: req.userId});
@@ -62,7 +62,7 @@ router.put('/:itemId', async (req, res) => {
     }
 });
 
-//criar método para checar se o usuário fez a requisição é dono do item
+//TODO: criar método para checar se o usuário fez a requisição é dono do item
 //deletar item
 router.delete('/:itemId', async (req, res) => {
     try{

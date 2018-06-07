@@ -30,9 +30,21 @@ router.get('/', async (req, res) => {
         return res.status(200).send({itens});
     }catch(err){
         console.log(err);
-        return res.status(200).send({err: 'Erro ao carregar itens'});
+        return res.status(400).send({err: 'Erro ao carregar itens'});
     }
 });
+//TODO: concertar essa rota... esta rota ainda não está funcionando
+//buscar por tipo
+router.get('/:tipo', async (req, res) => {
+    try{
+        //const tipoId = buscarTipo(req.params.tipo);
+        console.log(req.params.tipo);
+        const itens = await Item.find({"tipo": req.params.tipo});
+    }catch(err){
+        console.log(err);
+        return res.status(400).send({err: 'Erro ao carregar itens'});
+    }
+})
 /*
 //criar item
 router.post('/', async (req, res) => {
@@ -53,5 +65,12 @@ router.post('/', async (req, res) => {
     }
 });
 */
+
+
+//TODO: checar quando não existe o tipo selecionado
+function buscarTipo(nomeTipo){
+    const tipoId = Tipo.findOne({nome: nomeTipo}, '_id');
+    return tipoId;
+}
 
 module.exports = app => app.use('/item', router);
