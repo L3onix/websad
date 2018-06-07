@@ -34,8 +34,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+//TODO: checar se o item recebido é oficial
+//buscar por id
+router.get('/:itemId', async (req, res) => {
+    try{
+        const item = await Item.findById(req.params.itemId);
+
+        return res.status(200).send({item});
+    }catch(err){
+        console.log(err);
+        return res.status(400).send({err: 'Erro ao carregar item'});
+    }
+});
 //buscar por tipo
-router.get('/:tipo', async (req, res) => {
+router.get('/tipo/:tipo', async (req, res) => {
     try{
         //const tipoId = buscarTipo(req.params.tipo);
         console.log(req.params.tipo);
