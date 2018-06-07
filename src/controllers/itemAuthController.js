@@ -19,6 +19,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+//TODO: checar se o item procurado pertence a quem está fazendo a requisição
+//buscar um item
+router.get('/:itemId', async (req, res) => {
+    try{
+        const item = await Item.findById(req.params.itemId);
+
+        return res.status(200).send({item});
+    }catch(err){
+        console.log(err);
+        return res.status(400).send({err: 'Erro ao carregar o item'});
+    }
+})
+
 //criar item
 router.post('/', async (req, res) => {
     try{
