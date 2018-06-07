@@ -12,8 +12,8 @@ const ItemSchema = new mongoose.Schema({
         required: true
     },
     valor:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Moeda'
+        type: String,
+        required: true
     },
     peso:{
         type: String,
