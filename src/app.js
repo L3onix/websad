@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 //requires de rotas
 require('./controllers/authController')(app);
 require('./controllers/itemController')(app);
+require('./controllers/itemAuthController')(app);
 require('./controllers/itemTipoController')(app);
 
 

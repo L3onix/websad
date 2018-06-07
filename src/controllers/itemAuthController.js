@@ -4,22 +4,12 @@ const express = require('express'),
     Item = require('../models/item'),
     Tipo = require('../models/item/tipo');
 
-//router.use(authMid);
+router.use(authMid);
 
-//buscar todos os itens
 router.get('/', async (req, res) => {
-    //res.status(200).send({ok: true});
-    try{
-        const itens = await Item.find().populate('tipo');
-
-        return res.status(200).send({itens});
-    }catch(err){
-        console.log(err);
-        return res.status(200).send({err: 'Erro ao carregar itens'});
-    }
+    res.send({ok: true});
 });
 
-/*
 //criar item
 router.post('/', async (req, res) => {
     try{
@@ -38,6 +28,5 @@ router.post('/', async (req, res) => {
         return res.status(400).send({err: 'Erro ao criar novo tipo'});
     }
 });
-*/
 
-module.exports = app => app.use('/item', router);
+module.exports = app => app.use('/itemAuth', router);
