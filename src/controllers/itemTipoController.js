@@ -27,6 +27,6 @@ router.post('/', async (req, res) => {
         console.log(err);
         return res.status(400).send({err: 'Erro ao criar novo tipo'});
     }
-})
+});
 
 module.exports = app => app.use('/itemTipo', router);
