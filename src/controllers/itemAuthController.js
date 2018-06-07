@@ -62,6 +62,19 @@ router.put('/:itemId', async (req, res) => {
     }
 });
 
+//criar método para checar se o usuário fez a requisição é dono do item
+//deletar item
+router.delete('/:itemId', async (req, res) => {
+    try{
+        await  Item.findByIdAndRemove(req.params.itemId);
+
+        return res.status(200).send({delete: true});
+    }catch(err){
+        console.log(err);
+        return res.status(400).send({err: 'Erro ao deletar item'});
+    }
+})
+
 //TODO: checar quando não existe o tipo selecionado
 function buscarTipo(nomeTipo){
     const tipoId = Tipo.findOne({nome: nomeTipo}, '_id');
