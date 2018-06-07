@@ -1,41 +1,39 @@
 const mongoose = require('../../database/connection');
 
-const MagiaSchema = new mongoose.Schema({
+const RacaSchema = new mongoose.Schema({
     nome:{
         type: String,
         required: true
     },
-    nivel:{
+    aprhabilidade:{
         type: Number,
         required: true
     },
-    escola:{
+    tendencia:[{
+        type: String,
+        required: true
+    }],
+    tamanho:{
         type: String,
         required: true
     },
-    tempodeconjuracao:{
+    deslocamento:{
         type: Number,
         required: true
     },
-    alcance:{
-        type: Number
-    },
-    componentes: {
+    idioma:[{
+        type: String,
+        required: true
+    }],
+    subraca:[{
         type: String
-    },
-    duracao:{
-        type: String
+    }],
+    habilidade:{
+        type: JSON
     },
     descricao:{
         type: String,
         required: true
-    },
-    ritual:{
-        type: Boolean,
-        default: false
-    },
-    areadeefeito:{
-        type: String
     },
     criador:{
         type: mongoose.Schema.Types.ObjectId,
@@ -48,6 +46,6 @@ const MagiaSchema = new mongoose.Schema({
     }
 });
 
-const Magia = mongoose.model('Magia', MagiaSchema);
+const Raca = mongoose.model('Raca', RacaSchema);
 
-module.exports = Magia;
+module.exports = Raca;

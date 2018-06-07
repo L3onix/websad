@@ -23,5 +23,7 @@ require('./controllers/itemController')(app);
 require('./controllers/itemAuthController')(app);
 require('./controllers/magiaController')(app);
 require('./controllers/magiaAuthController')(app);
+require('./controllers/racaController')(app);
+require('./controllers/racaAuthController')(app);
 
 module.exports = app;

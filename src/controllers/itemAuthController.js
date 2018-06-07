@@ -34,13 +34,6 @@ router.get('/:itemId', async (req, res) => {
 //criar item
 router.post('/', async (req, res) => {
     try{
-        //const tipo = req.body.tipo;
-        //const tipoId = await buscarTipo(req.body.tipo);
-        //console.log(tipoId._id);
-
-        //req.body.tipo = tipoId._id;
-        //console.log(req.body.tipo);
-
         const item = await Item.create({...req.body, criador: req.userId});
 
         return res.status(200).send({item});
@@ -59,13 +52,7 @@ router.put('/:itemId', async (req, res) => {
         //req.body.tipo = tipoId._id;
 
         const {nome, tipo, valor, peso, descricao} = req.body
-        const item = await Item.findByIdAndUpdate(req.params.itemId, {
-            nome,
-            tipo,
-            valor,
-            peso,
-            descricao
-        }, {new: true});
+        const item = await Item.findByIdAndUpdate(req.params.itemId, req.body, {new: true});
 
         return res.status(200).send(item);
     }catch(err){
