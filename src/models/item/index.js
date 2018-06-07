@@ -22,6 +22,16 @@ const ItemSchema = new mongoose.Schema({
     descricao:{
         type: String,
         required: true
+    },
+    oficial:{
+        type: Boolean,
+        default: false,
+        required: true
+    },
+    criador:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
 });
 

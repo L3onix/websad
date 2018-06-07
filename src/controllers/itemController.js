@@ -6,11 +6,12 @@ const express = require('express'),
 
 //router.use(authMid);
 
+/*
 //buscar todos os itens
 router.get('/', async (req, res) => {
     //res.status(200).send({ok: true});
     try{
-        const itens = await Item.find().populate('tipo');
+        const itens = await Item.find().populate('tipo', 'criador');
 
         return res.status(200).send({itens});
     }catch(err){
@@ -18,7 +19,20 @@ router.get('/', async (req, res) => {
         return res.status(200).send({err: 'Erro ao carregar itens'});
     }
 });
+*/
 
+//buscar todos os itens oficiais 
+router.get('/', async (req, res) => {
+    //res.status(200).send({ok: true});
+    try{
+        const itens = await Item.find({"oficial": true});
+
+        return res.status(200).send({itens});
+    }catch(err){
+        console.log(err);
+        return res.status(200).send({err: 'Erro ao carregar itens'});
+    }
+});
 /*
 //criar item
 router.post('/', async (req, res) => {
