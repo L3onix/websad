@@ -25,5 +25,7 @@ require('./controllers/magiaController')(app);
 require('./controllers/magiaAuthController')(app);
 require('./controllers/racaController')(app);
 require('./controllers/racaAuthController')(app);
+require('./controllers/classeControllers')(app);
+require('./controllers/classeAuthController')(app);
 
 module.exports = app;
