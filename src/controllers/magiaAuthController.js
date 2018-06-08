@@ -49,14 +49,14 @@ router.put('/:magiaId', async (req, res) => {
     try{
         const magia = await Magia.findByIdAndUpdate(req.params.magiaId, req.body, {new: true});
         
-        return res.status(200).send({magia})
+        return res.status(200).send({magia});
     }catch(err){
         console.log(err);
         return res.status(400).send({err: 'Erro ao editar magia'});
     }
 });
 
-//TODO: checar se o usuário da req é dono do item
+//TODO: checar se o usuário da req é dono da magia
 //deletar magia
 router.delete('/:magiaId', async (req, res) => {
     try{

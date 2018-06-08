@@ -29,5 +29,6 @@ require('./controllers/classeControllers')(app);
 require('./controllers/classeAuthController')(app);
 require('./controllers/criaturaController')(app);
 require('./controllers/criaturaAuthController')(app);
+require('./controllers/personagemAuthController')(app);
 
 module.exports = app;
