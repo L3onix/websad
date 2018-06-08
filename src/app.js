@@ -27,5 +27,7 @@ require('./controllers/racaController')(app);
 require('./controllers/racaAuthController')(app);
 require('./controllers/classeControllers')(app);
 require('./controllers/classeAuthController')(app);
+require('./controllers/criaturaController')(app);
+require('./controllers/criaturaAuthController')(app);
 
 module.exports = app;
